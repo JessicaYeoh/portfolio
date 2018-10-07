@@ -1,0 +1,33 @@
+@tailwind preflight;
+
+@tailwind components;
+
+.container {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+
+    a {
+        text-decoration: none;
+    }
+    
+   .aboveTheFold {
+       background-image: url("./images/bg.png"); 
+       background-size: cover;
+       background-attachment: fixed;
+       background-position: center;
+       width: 100vw;
+       height: 100vh;
+   }
+
+   .about {
+       width: 100vw;
+       height: 300px;
+       padding: 50px 100px;
+   }
+}
+
+@import "./sass/components/navbar";
+@import "./sass/components/buttons";
+
+@tailwind utilities;

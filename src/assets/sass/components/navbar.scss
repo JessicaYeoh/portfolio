@@ -1,0 +1,333 @@
+nav {
+    @apply flex p-20 fixed w-full;
+  
+    @screen tablet {
+      @apply p-30;
+    }
+  
+    @screen iPhoneXlandscape {
+      @apply p-20;
+    }
+
+    @screen desktop {
+        @apply p-0;
+    }
+  
+    .mobileNav {
+      @apply inline-flex w-full justify-between;
+  
+      @screen desktop {
+        @apply hidden;
+      }
+  
+      @screen iPhoneXlandscape {
+        @apply inline-flex w-full justify-between;
+      }
+  
+      .hamburgerClosed {
+        @apply inline-block;
+  
+        &:after {
+          font-size: 17px;
+  
+          @screen smPhone {
+            @apply inline-block;
+          }
+  
+          @screen iPhoneXlandscape {
+            @apply inline-block;
+          }
+  
+          @screen desktop {
+            @apply hidden;
+          }
+        }
+      }
+  
+      .mobileHeading {
+        @apply inline;
+  
+        @screen tablet {
+          @apply hidden;
+        }
+  
+        @screen iPhoneXlandscape {
+          @apply inline;
+        }
+  
+        h1 {
+          @apply text-mainText text-white;
+        }
+      }
+  
+      .menuRightMobile {
+        .searchMobile {
+          @apply mr-50;
+  
+          @screen smPhone {
+            @apply hidden;
+          }
+  
+          @screen iPhoneXlandscape {
+            @apply hidden;
+          }
+        }
+  
+        .profileMobile {
+          &:after {
+            @screen desktop {
+              @apply hidden;
+            }
+  
+            @screen iPhoneXlandscape {
+              @apply inline;
+            }
+          }
+        }
+      }
+    }
+  
+    .menu {
+      @apply fixed bg-charcoal pin-t h-full z-30 overflow-y-auto;
+  
+      left: -288px;
+      width: 288px;
+  
+      &.active {
+        @apply visible pin-l;
+  
+        transition: all .5s ease;
+      }
+  
+      &.close-menu {
+        @apply invisible;
+  
+        transition: visibility 0s ease .5s, all .5s ease;
+  
+        @screen desktop {
+          @apply inline-flex visible w-full h-auto static items-center justify-between overflow-y-visible;
+
+          background-color: rgba(57, 57, 57, 0.6);
+        }
+      }
+  
+      .menuLeft {
+        @apply inline-flex flex-no-shrink flex-col pl-2;
+  
+        @screen smPhone {
+          @apply w-full pl-0 py-40 block;
+        }
+  
+        @screen iPad {
+          @apply w-full pl-0 py-40 block;
+        }
+  
+        @screen desktop {
+           @apply flex-row;
+        }
+  
+        .logo {
+          top: 20px;
+          left: 20px;
+  
+          @apply no-underline absolute;
+  
+          @screen desktop {
+            @apply flex items-center static h-80 px-50;
+          }
+        }
+  
+        .hamburgerOpen {
+          @apply inline-block mb-40;
+  
+          &:after {
+            font-size: 17px;
+            right: 30px;
+            top: 30px;
+  
+            @apply inline-block absolute;
+  
+            @screen desktop {
+              @apply hidden;
+            }
+          }
+  
+          &:hover:after {
+            @apply text-tealDarker;
+          }
+  
+          &:focus:after {
+            @apply text-tealDarkest;
+          }
+        }
+  
+        .menuItemContainer {
+          @apply list-reset flex flex-wrap;
+  
+          @screen desktop {
+            @apply relative;
+          }
+  
+          .menuItem {
+            @apply text-baseSize flex flex-wrap content-between h-80 px-18 text-white;
+  
+            line-height: 80px;
+  
+            @screen smPhone {
+              @apply py-10 h-auto px-30 mt-15 w-full;
+  
+              line-height: 1.15;
+            }
+  
+            @screen iPad{
+              @apply py-10 h-auto px-30 mt-15 w-full;
+  
+              line-height: 1.15;
+            }
+  
+            // &.router-link-active {
+            //   @apply text-white font-bold bg-greyDarkest;
+  
+            //   @screen desktop {
+            //     @apply bg-charcoal;
+            //   }
+  
+            //   &:after {
+            //    content: '';
+            //    @apply h-5 w-full bg-tealDark block rounded-t;
+              
+            //    @screen smPhone {
+            //      content: '';
+            //      border-right: 5px solid #679198;
+              
+            //      @apply absolute pin-r h-30 -mt-5 w-0 rounded-l rounded-tr-none;
+            //    }
+              
+            //    @screen iPhoneXlandscape {
+            //      content: '';
+            //      border-right: 5px solid #679198;
+              
+            //      @apply absolute pin-r h-30 -mt-5 w-0 rounded-l rounded-tr-none;
+            //    }
+            //   }
+            // }
+  
+            &:hover {
+              @apply text-white font-bold bg-greyDarkest;
+  
+              @screen desktop {
+                @apply bg-charcoal;
+              }
+            }
+  
+            &:focus {
+              @apply text-white font-bold bg-greyDarkest;
+  
+              @screen desktop {
+                @apply bg-charcoal;
+              }
+  
+              &:after {
+               content: '';
+               @apply h-5 w-full bg-tealDark block rounded-t;
+              
+               @screen smPhone {
+                 content: '';
+                 border-right: 5px solid #679198;
+              
+                 @apply absolute pin-r h-30 -mt-5 w-0 rounded-l rounded-tr-none;
+               }
+              
+               @screen iPhoneXlandscape {
+                 content: '';
+                 border-right: 5px solid #679198;
+              
+                 @apply absolute pin-r h-30 -mt-5 w-0 rounded-l rounded-tr-none;
+               }
+              }
+            }
+          }
+  
+          .dropdownMenu {
+            @apply w-full flex flex-wrap p-0;
+  
+            @screen desktop {
+              @apply absolute bg-charcoal py-30 flex invisible opacity-0;
+  
+              top: 80px;
+              width: 288px;
+              transition: visibility 0s ease 0.5s, all 0.5s ease;
+            }
+  
+            .subMenuItem {
+              @apply w-full text-grey text-smallText py-5 px-30 inline-flex items-center;
+  
+              &:hover {
+                @apply text-white font-bold bg-greyDarkest;
+  
+                @screen desktop {
+                  @apply bg-charcoal;
+                }
+              }
+  
+              &:focus {
+                @apply text-white font-bold bg-greyDarkest;
+  
+                @screen desktop {
+                  @apply bg-charcoal;
+                }
+              }
+  
+              &.router-link-active {
+                @apply text-white font-bold bg-greyDarkest;
+  
+                @screen desktop {
+                  @apply bg-charcoal;
+                }
+              }
+  
+              .notifications {
+                 @apply ml-10 inline-flex items-center justify-center text-xxsText font-black text-white rounded-lg bg-tealDark py-2 px-10;
+              }
+            }
+          }
+  
+          .dashboardItem {
+            @screen smPhone {
+              @apply mt-0;
+            }
+  
+            @screen iPad {
+              @apply mt-0;
+            }
+          }
+        }
+  
+        .menuItemContainer:hover > ul {
+          @apply flex opacity-1 visible;
+  
+          transition: all 0.5s ease;
+        }
+      }
+    }
+  }
+  
+  .overlay {
+    background-color: rgba(242, 242, 242, 0.8);
+  
+    @apply fixed pin-t pin-l w-screen h-screen;
+  
+    &.active {
+      @apply z-20;
+  
+      transition: all .5s ease;
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    &.close-menu {
+      transition: visibility 0s ease .5s, all .5s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }

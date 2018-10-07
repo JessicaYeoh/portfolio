@@ -1,0 +1,84 @@
+// BUTTONS WITH ICONS
+.btn-icon {
+    font-family: 'Font Awesome 5 Free';
+  
+    @apply font-semibold text-charcoal;
+  
+    &:disabled:after {
+      @apply text-greyDarker;
+  
+      &:hover {
+        @apply text-greyDarker;
+      }
+    }
+  
+    &:hover:after {
+      @apply text-tealDark;
+    }
+  
+    &:focus:after {
+      @apply text-tealDark;
+    }
+  }
+  
+  .btn-x-teal {
+    &:after {
+      @apply text-tealDark text-largeText;
+  
+      content: '\f00d';
+    }
+  
+    &:hover:after {
+      @apply text-tealDarker;
+    }
+  
+    &:focus:after {
+      @apply text-tealDarkest;
+    }
+  
+    @screen smPhone {
+      &:after {
+        @apply text-white;
+      }
+  
+      &:hover:after {
+        @apply text-tealDark;
+      }
+  
+      &:focus:after {
+        @apply text-tealDark;
+      }
+    }
+  
+    @screen iPhoneXlandscape {
+      &:after {
+        @apply text-white;
+      }
+  
+      &:hover:after {
+        @apply text-tealDark;
+      }
+  
+      &:focus:after {
+        @apply text-tealDark;
+      }
+    }
+  }
+  
+  .btn-x {
+    &:after {
+      content: '\f00d';
+    }
+  }
+  
+  .btn-sign-out {
+    &:after {
+      content: '\f2f5';
+    }
+  }
+  
+  .btn-menu {
+    &:after {
+      content: '\f0c9';
+    }
+  }
